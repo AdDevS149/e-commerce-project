@@ -91,11 +91,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div>
-          <footer>
-            <p>2022 © LUX BAGS Store</p>
-          </footer>
-        </div>
       </div>
     </div>
   );

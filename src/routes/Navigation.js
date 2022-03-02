@@ -6,6 +6,7 @@ import './Navigation.css';
 
 const Navigation = () => {
   return (
+    <div> 
     <header>
       <nav className='nav-bar'>
         <h2 className='logo'>LUX BAGS</h2>
@@ -15,9 +16,11 @@ const Navigation = () => {
         <Link to='/sign-up'>Sign Up</Link>
         <img src={CartIcon} alt='shopping cart icon' />
       </nav>
-
       <Outlet />
-    </header>
+    </header>    
+    <footer>2022 © LUX BAGS Store</footer> 
+</div>
+
   );
 };
 
