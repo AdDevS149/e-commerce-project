@@ -1,4 +1,11 @@
-* {
+main h1 {
+  font-size: 40px;
+  text-align: center;
+background-color: lightskyblue;
+}
+
+
+/* * {
  margin: 0;
  padding: 0;
  box-sizing: border-box;
@@ -9,7 +16,6 @@ body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-/* position: relative; */
 
 }
 
@@ -47,4 +53,4 @@ nav-bar h2 {
   width: 20px;
   height: 20px;
   padding-left: 10px;
-}
+} */
