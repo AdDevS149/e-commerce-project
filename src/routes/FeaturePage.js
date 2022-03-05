@@ -1,29 +1,33 @@
 import React from 'react';
 
-import data from '../data';
-console.log(data);
-export default function FeaturePage() {
+import products from '../data';
+
+const FeaturePage = () => {
+  const featuredList = products
+    .filter((product) => product.featured === true)
+    .map((filteredProduct) => (
+      <div key={filteredProduct.id}>
+        <div className='featured-collection__container'>
+          <div className='featured-collection__card'>
+            <img src={filteredProduct.url} alt={filteredProduct.item} />
+            <ul>
+              <li>{filteredProduct.item}</li>
+              <li>
+                <span>${filteredProduct.price}</span>
+              </li>
+            </ul>
+            <button className='featured-btn'>ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    ));
+
   return (
     <div>
       <h2 className='featured-collection__text'>Featured Collection</h2>
-      <div className='featured-collection__container' key={data.products.id}>
-        {data.products
-          .filter((product) => product.featured === true)
-          .map((filteredProduct) => (
-            <div className='featured-collection__card' key={filteredProduct.id}>
-              <div>
-                <img src={filteredProduct.url} alt='black backpack' />
-                <ul>
-                  <li>{filteredProduct.item}</li>
-                  <li>
-                    <span>${filteredProduct.price}</span>
-                  </li>
-                </ul>
-                <button className='featured-btn'>ADD TO CART</button>
-              </div>
-            </div>
-          ))}
-      </div>
+      <div>{featuredList}</div>
     </div>
   );
-}
+};
+
+export default FeaturePage;

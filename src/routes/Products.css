@@ -1,4 +1,4 @@
-.collection-card__container {
+.products-card__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -8,12 +8,12 @@
   margin-bottom: 3rem;
 }
 
-.collection-card__text {
+.products-card__text {
   text-align: center;
   font-size: 2.5rem;
 }
 
-.collection-card {
+.products-card {
   margin: 0px 5% 30px 0px;
   border: 0.5px solid rgb(190, 187, 187);
   border-radius: 10px;
@@ -22,17 +22,17 @@
   padding: 0.8rem;
 }
 
-.collection-card img {
+.products-card img {
   width: 200px;
   height: 200px;
 }
 
-.collection-card ul {
+.products-card ul {
   margin: 0;
   padding: 0;
 }
 
-.collection-card li {
+.products-card li {
   font-size: 1rem;
   list-style: none;
   font-weight: bold;
@@ -40,7 +40,7 @@
   margin-bottom: 0.5rem;
 }
 
-.collection-btn {
+.products-btn {
   width: 100%;
   color: white;
   background-color: black;
