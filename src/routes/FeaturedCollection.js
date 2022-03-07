@@ -33,7 +33,6 @@ const FeaturedCollection = () => {
       <div>
         <div className='featured-collection__container'>{featuredList}</div>
       </div>
-      {/* <Outlet/> */}
     </div>
   );
 };
