@@ -1,0 +1,42 @@
+.featured-collection__text {
+  margin-left: 8rem;
+  font-size: 2.5rem;
+}
+
+.featured-collection__container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.featured-collection__card {
+  width: 200px;
+  padding: 0.8rem;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin: 2.5rem 7rem;
+}
+
+.featured-collection__container ul {
+  margin: 0;
+  padding: 0;
+}
+
+.featured-collection__card li {
+  font-size: 1rem;
+  list-style: none;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.featured-btn {
+  width: 100%;
+  color: white;
+  background-color: black;
+  padding: 0.8rem 1rem;
+  padding: 0.5rem;
+  border-radius: 4px solid black;
+  margin-bottom: 20px;
+}
