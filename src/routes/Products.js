@@ -1,16 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { getProducts } from '../data';
 import '../styles/Products.css';
 
 const Products = () => {
   let products = getProducts();
   const productDisplay = products.map((product) => (
-    <div>
+    <div key={product.id}>
       <div className='products-card'>
-        <Link to={`/products/${product.urlName}`} key={product.urlName}>
+        <Link to={`/products/${product.urlName}`} key={product.id}>
           <img src={product.image} alt={product.item} />
         </Link>
-
         <ul>
           <li>{product.item}</li>
           <li>
@@ -20,6 +19,7 @@ const Products = () => {
 
         <button className='products-btn'>ADD TO CART</button>
       </div>
+      <Outlet/>
     </div>
   ));
 

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import { getProducts } from '../data';
-import '../styles/FeaturedCollection.css';
+// import '../styles/FeaturedCollection.css';
+import '../index.css';
 
 const FeaturedCollection = () => {
   let products = getProducts();
@@ -28,7 +29,7 @@ const FeaturedCollection = () => {
     ));
 
   return (
-    <div>
+    <div className="collection">
       <h2 className='featured-collection__text'>Featured Collection</h2>
       <div>
         <div className='featured-collection__container'>{featuredList}</div>

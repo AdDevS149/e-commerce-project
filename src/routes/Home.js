@@ -1,9 +1,8 @@
 import React from 'react';
 
 import FeaturedCollection from './FeaturedCollection';
-
-import ShoulderBag from './images/ben-white-unsplash.jpeg'
-import StudioBag from './images/studio-bag.png'
+import ShoulderBag from '../images/ben-white-unsplash.jpeg'
+import StudioBag from '../images/studio-bag.png'
 import '../styles/Home.css';
 
 const Home = () => {
