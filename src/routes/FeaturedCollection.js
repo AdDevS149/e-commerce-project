@@ -10,8 +10,8 @@ const FeaturedCollection = () => {
 
     .filter((product) => product.featured === true)
     .map((filteredProduct) => (
-      <div>
-        <div key={filteredProduct.id}>
+      <div key={filteredProduct.id}>
+        <div >
           <div className='featured-collection__card'>
             <Link to={`/products/${filteredProduct.urlName}`} key={filteredProduct.urlName}>
               <img src={filteredProduct.image} alt={filteredProduct.item} />
