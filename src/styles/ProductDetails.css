@@ -1,72 +1,62 @@
-.product-detail__container {
+.details-container {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: normal;
-  align-items: center;
-  align-content: normal;
-  margin-left: 300px;
-  margin-top: 50px;
-  margin-bottom: 100px;
-  background-color: red;
-  
+  width: 70%;
+  padding: 100px;
+  justify-content: space-evenly;
+  max-height: 100vh;
+  margin-left: 5.5rem;
 }
 
-
-.product-details {
-  background-color: aqua;
-}
-.product-details img {background-color: green;}
-.product-details{
-  background-color: blue;
-}
-/* .product-detail:nth-child(1) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+.details-img img {
+  width: 400px;
+  margin-left: 8rem;
 }
 
-.product-details:nth-child(1) img {
-  width: 450px;
+.detail-items__description {
+  margin-top: 1rem;
 }
 
-.product-details:nth-child(2) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-  margin-top: 55px;
-
+.detail-items__description .item {
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
-.product-details:nth-child(2) p {
-  padding-right: 400px;
-  line-height: 1.3;
+.detail-items__description .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
-
-.product-details:nth-child(2) .add-to {
-  width: 47%;
+.detail-items__description .add-btn {
+  width: 82%;
+  font-size: 1.1rem;
   color: black;
   background-color: white;
-  /* padding: 0.8rem 1rem; */
   padding: 0.5rem;
-  border-radius: 4px solid black;
+  border-radius: 50px solid black;
   margin-bottom: 20px;
 }
-
-.product-details:nth-child(2) .checkout {
-  width: 47%;
+.detail-items__description .checkout-btn {
+  width: 82%;
+  font-size: 1.1rem;
   color: white;
   background-color: black;
-  /* padding: 0.8rem 1rem; */
   padding: 0.5rem;
-  border-radius: 4px solid black;
-  margin-bottom: 6px;
-} */
+  border-radius: 50px solid black;
+  /* margin-bottom: px; */
+}
 
+.detail-items__description .description {
+  width: 82%;
+  font-size: 1.2rem;
+  /* padding: 0.5rem; */
+  /* margin-bottom: 20px; */
+}
 
+img {
+  /* background-color: red; */
+  /* float: left; */
+  /* margin: 0px 0px 15px 15px; */
+  /* width: 300px;
+  height: 300px; */
+  /* clear: both; */
+}

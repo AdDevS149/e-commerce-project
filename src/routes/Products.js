@@ -27,6 +27,7 @@ const Products = () => {
     <div>
       <h2 className='products-card__text'>Shop</h2>
       <nav className='products-card__container'>{productDisplay}</nav>
+   
     </div>
   );
 };

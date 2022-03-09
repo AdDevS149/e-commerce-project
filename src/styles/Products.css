@@ -35,7 +35,6 @@
   font-size: 1rem;
   list-style: none;
   font-weight: bold;
-  /* width: 100%; */
   margin-bottom: 0.5rem;
 }
 
@@ -43,7 +42,6 @@
   width: 100%;
   color: white;
   background-color: black;
-  /* padding: 0.8rem 1rem; */
   padding: 0.5rem;
   border-radius: 4px solid black;
   margin-bottom: 20px;
