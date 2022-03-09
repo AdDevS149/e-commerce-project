@@ -10,7 +10,6 @@ export default function ProductDetails() {
 
   return (
     <>
-      {/* <div className='details-container' key={details.id}> */}
       <div className='details-container'>
         <div className='details-img'>
           <img src={details.image} alt={details.item} />
@@ -24,7 +23,6 @@ export default function ProductDetails() {
           <p className='description'>{details.description}</p>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 }

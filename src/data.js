@@ -51,7 +51,7 @@ let products = [
     price: 25,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
-    featured: false,
+    featured: true,
   },
 
   {
@@ -63,7 +63,7 @@ let products = [
     price: 35,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
-    featured: false,
+    featured: true,
   },
 
   {
@@ -74,7 +74,7 @@ let products = [
     price: 45,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
-    featured: false,
+    featured: true,
   },
 
   {

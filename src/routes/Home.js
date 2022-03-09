@@ -1,8 +1,8 @@
 import React from 'react';
 
 import FeaturedCollection from './FeaturedCollection';
-import ShoulderBag from '../images/ben-white-unsplash.jpeg'
-import StudioBag from '../images/studio-bag.png'
+import ShoulderBag from '../images/ben-white-unsplash.jpeg';
+import StudioBag from '../images/studio-bag.png';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -15,7 +15,6 @@ const Home = () => {
         <button className='shop-btn'>SHOP NOW</button>
       </div>
       <div className='featured-item'>
-      
         <img className='featured-item__button' src={StudioBag} alt='studio bag' />
         <h3>Designed for fashion. Crafted for sport.</h3>
         <p>

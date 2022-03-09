@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom';
 
 import { getProducts } from '../data';
-// import '../styles/FeaturedCollection.css';
-import '../index.css';
+import '../styles/FeaturedCollection.css';
 
 const FeaturedCollection = () => {
   let products = getProducts();
   const featuredList = products
 
+    // console.log(products)
     .filter((product) => product.featured === true)
     .map((filteredProduct) => (
-      <div key={filteredProduct.id}>
-        <div >
-          <div className='featured-collection__card'>
+      <>
+        <div className='featured-collection__card' key={filteredProduct.id}>
+          <main>
             <Link to={`/products/${filteredProduct.urlName}`} key={filteredProduct.urlName}>
               <img src={filteredProduct.image} alt={filteredProduct.item} />
             </Link>
@@ -23,18 +23,16 @@ const FeaturedCollection = () => {
               </li>
             </ul>
             <button className='featured-btn'>ADD TO CART</button>
-          </div>
+          </main>
         </div>
-      </div>
+      </>
     ));
 
   return (
-    <div className="collection">
+    <>
       <h2 className='featured-collection__text'>Featured Collection</h2>
-      <div>
-        <div className='featured-collection__container'>{featuredList}</div>
-      </div>
-    </div>
+      <div className='featured-collection__container'>{featuredList}</div>
+    </>
   );
 };
 
