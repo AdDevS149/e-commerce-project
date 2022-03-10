@@ -5,15 +5,18 @@
   justify-content: space-evenly;
   max-height: 100vh;
   margin-left: 5.5rem;
+  gap: 6px;
 }
 
 .details-img img {
   width: 400px;
+  height: 500px;
+  object-fit: cover;
   margin-left: 8rem;
 }
 
 .detail-items__description {
-  margin-top: 1rem;
+  margin-top: 4rem;
 }
 
 .detail-items__description .item {

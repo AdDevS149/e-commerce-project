@@ -1,9 +1,10 @@
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import Home from './routes/Home';
-import Products from './routes/Products';
-import ProductDetails from './routes/ProductDetails';
+import Home from './Pages/Home/Home';
+import Products from './Pages/Products/Products';
+import ProductDetails from './Pages/Products/ProductDetails';
+import Cart from './Pages/Cart/Cart';
 
 render(
   <BrowserRouter>
@@ -12,6 +13,7 @@ render(
         <Route index element={<Home />} />
         <Route path='products' element={<Products />} />
         <Route path='products/:productId' element={<ProductDetails />} />
+            <Route path='/cart' element={<Cart/>} />
         <Route
           path='*'
           element={
@@ -21,6 +23,7 @@ render(
           }
         />
       </Route>
+  
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

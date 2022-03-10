@@ -1,3 +1,5 @@
+import CirrusImage from './Assets/Images/cirrus1.jpeg'
+
 let products = [
   {
     id: 1,
@@ -47,7 +49,7 @@ let products = [
     id: 5,
     urlName: 'cirrus',
     item: 'Cirrus',
-    image: 'https://i.ibb.co/CPv6xTF/cirrus1.jpg',
+    image: CirrusImage,
     price: 25,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',

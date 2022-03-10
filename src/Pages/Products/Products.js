@@ -1,9 +1,14 @@
 import { Link, Outlet } from 'react-router-dom';
-import { getProducts } from '../data';
-import '../styles/Products.css';
+import { getProducts } from '../../data';
+import './Products.css';
+
+import { useContext } from 'react';
+import { CounterContext } from '../../contexts/CounterContext';
 
 const Products = () => {
   let products = getProducts();
+  const { increaseCount } = useContext(CounterContext);
+
   const productDisplay = products.map((product) => (
     <div key={product.id}>
       <div className='products-card'>
@@ -17,9 +22,11 @@ const Products = () => {
           </li>
         </ul>
 
-        <button className='products-btn'>ADD TO CART</button>
+        <button className='products-btn' onClick={increaseCount}>
+          ADD TO CART
+        </button>
       </div>
-      <Outlet/>
+      <Outlet />
     </div>
   ));
 
@@ -27,7 +34,6 @@ const Products = () => {
     <div>
       <h2 className='products-card__text'>Shop</h2>
       <nav className='products-card__container'>{productDisplay}</nav>
-   
     </div>
   );
 };
