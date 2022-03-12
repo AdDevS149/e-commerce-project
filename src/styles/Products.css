@@ -24,6 +24,8 @@
 .products-card img {
   width: 200px;
   height: 200px;
+  position: relative;
+  overflow: hidden;
 }
 
 .products-card ul {

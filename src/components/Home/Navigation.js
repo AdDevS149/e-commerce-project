@@ -1,18 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import CartIcon from '../../Assets/Images/shopping-bag.png';
 import { useContext } from 'react';
 import { CounterContext } from '../../contexts/CounterContext';
 
-import './Header.css';
+import '../../styles/Navigation.css'
 
-const Header = () => {
+const Navigation = () => {
   const { count } = useContext(CounterContext);
 
   return (
     <>
-      <header className='header'>
+      <nav className='nav-bar'>
         <div>
           <h1>
             <Link to='/' className='logo'>
@@ -20,7 +19,7 @@ const Header = () => {
             </Link>
           </h1>
         </div>
-        <div className='header-links'>
+        <div className='nav-links'>
           <ul>
             <li>
               <Link to='/'>Home</Link>
@@ -42,21 +41,20 @@ const Header = () => {
             </li>
           </ul>
 
-          <ul>
-            <li>
+          {/* <ul>
+            <li> */}
               <Link to='/cart' className='cart'>
                 <div className='cart-icon__ctn'>
-                  <img src={CartIcon} alt='cart-icon' />
+                  <img src={'/images/shopping-bag.png'} alt='cart-icon' />
                   <span>{count}</span>
                 </div>
               </Link>
-            </li>
-          </ul>
+            {/* </li>
+          </ul> */}
         </div>
-        {/* <footer>2022 © LUX BAGS Store</footer> */}
-      </header>
+      </nav>
     </>
   );
 };
 
-export default Header;
+export default Navigation;

@@ -1,6 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { getProducts } from '../../data';
-import './Products.css';
+import '../../styles/Products.css';
 
 import { useContext } from 'react';
 import { CounterContext } from '../../contexts/CounterContext';

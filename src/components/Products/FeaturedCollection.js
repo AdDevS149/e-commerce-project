@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getProducts } from '../../data';
-import './FeaturedCollection.css';
+import '../../styles/FeaturedCollection.css';
 
 import { useContext } from 'react';
 import { CounterContext } from '../../contexts/CounterContext';

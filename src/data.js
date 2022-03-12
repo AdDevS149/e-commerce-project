@@ -1,11 +1,11 @@
-import CirrusImage from './Assets/Images/cirrus1.jpeg'
+// import CirrusImage from './Assets/images/cirrus1.jpeg'
 
 let products = [
   {
     id: 1,
     urlName: 'studio-bag',
     item: 'Studio Bag',
-    image: 'https://i.ibb.co/PcXVJ8m/studiobag.jpg',
+    image: '/images/blackstudiobag.jpeg',
     price: 85,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
@@ -16,7 +16,7 @@ let products = [
     id: 2,
     urlName: 'cumulus-bag',
     item: 'Cumulus Bag',
-    image: 'https://i.ibb.co/NtpJ0XQ/cumulus-olive.png',
+    image: '/images/cumulus-olive.png',
     price: 75,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
@@ -27,7 +27,7 @@ let products = [
     id: 3,
     urlName: 'dance-bag',
     item: 'Dance Bag Nylon',
-    image: 'https://i.ibb.co/yRKyXPJ/dance-nylon.png',
+    image: '/images/dance-nylon.png',
     price: 10,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
@@ -38,7 +38,7 @@ let products = [
     id: 4,
     urlName: 'stratus-backpack',
     item: 'Stratus Backpack',
-    image: 'https://i.ibb.co/Br2W7F0/stratus-backpack.png',
+    image: '/images/stratus-backpack.png',
     price: 15,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
@@ -49,7 +49,7 @@ let products = [
     id: 5,
     urlName: 'cirrus',
     item: 'Cirrus',
-    image: CirrusImage,
+    image: '/images/cirrus1.jpeg',
     price: 25,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
@@ -60,7 +60,7 @@ let products = [
     id: 6,
     item: 'Mini Circle',
     urlName: 'mini-circle',
-    image: 'https://i.ibb.co/LNNw217/mini-circle.png',
+    image: '/images/mini-circle.png',
 
     price: 35,
     description:
@@ -72,7 +72,7 @@ let products = [
     id: 7,
     urlName: 'studio-bag-vaqueta',
     item: 'Studio Bag Vaqueta',
-    image: 'https://i.ibb.co/QmGdpLf/studio-bag-vaqueta.jpg',
+    image: '/images/studio-bag-vaqueta.jpeg',
     price: 45,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',
@@ -83,7 +83,7 @@ let products = [
     id: 8,
     urlName: 'sling',
     item: 'Sling',
-    image: 'https://i.ibb.co/LzyPnF3/sling.png',
+    image: '/images/sling.png',
     price: 55,
     description:
       'The Studio Bag is identical to its predecessor plus a few more inches to love. Transition if from satchel to backpack to crossbody simply by changing straps. Carry it wherever you go - it will be ready to adapt to your needs and keep up with your style.',

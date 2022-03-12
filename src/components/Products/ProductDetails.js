@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getProducts } from '../../data';
-import './ProductDetails.css';
+import '../../styles/ProductDetails.css';
 
 import { useContext } from 'react';
 import { CounterContext } from '../../contexts/CounterContext';

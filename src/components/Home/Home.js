@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FeaturedCollection from '../Products/FeaturedCollection';
-import ShoulderBag from '../../Assets/Images/ben-white-unsplash.jpeg';
-import StudioBag from '../../Assets/Images/studio-bag.png';
-import './Home.css';
+import '../../styles/Home.css';
 
 const Home = () => {
   return (
     <div className='home-page__image'>
-      <img src={ShoulderBag} alt='man modeling a shoulder bag' />
+      <img src={'/images/ben-white-unsplash.jpeg'} alt='man modeling a shoulder bag' />
       <br />
       <div className='main-text'>Bags reimagined for modern life.</div>
       <div>
@@ -17,7 +15,7 @@ const Home = () => {
         </Link>
       </div>
       <div className='featured-item'>
-        <img className='featured-item__button' src={StudioBag} alt='studio bag' />
+        <img className='featured-item__button' src={'/images/studio-bag.png'} alt='studio bag' />
         <h3>Designed for fashion. Crafted for sport.</h3>
         <p>
           We make
