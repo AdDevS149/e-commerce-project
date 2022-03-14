@@ -1,13 +1,14 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { useContext } from 'react';
-import { CounterContext } from '../../contexts/CounterContext';
+import { DataContext } from '../../contexts/DataContext';
 
-import '../../styles/Navigation.css'
+import '../../styles/Navigation.css';
 
 const Navigation = () => {
-  const { count } = useContext(CounterContext);
+  // const { count } = useContext(CounterContext);
+  const value = useContext(DataContext);
+  const [cart] = value.cart;
 
   return (
     <>
@@ -27,7 +28,7 @@ const Navigation = () => {
           </ul>
           <ul>
             <li>
-              <Link to='/products'>Shop</Link>
+              <Link to='/products'>Products</Link>
             </li>
           </ul>
           <ul>
@@ -41,16 +42,12 @@ const Navigation = () => {
             </li>
           </ul>
 
-          {/* <ul>
-            <li> */}
-              <Link to='/cart' className='cart'>
-                <div className='cart-icon__ctn'>
-                  <img src={'/images/shopping-bag.png'} alt='cart-icon' />
-                  <span>{count}</span>
-                </div>
-              </Link>
-            {/* </li>
-          </ul> */}
+          <Link to='/cart' className='cart'>
+            <div className='cart-icon__ctn'>
+              <img src={'/images/shopping-bag.png'} alt='cart-icon' />
+              <span>{cart.length}</span>
+            </div>
+          </Link>
         </div>
       </nav>
     </>

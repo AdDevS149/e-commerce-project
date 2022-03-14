@@ -14,7 +14,8 @@
   text-decoration: none;
   text-transform: uppercase;
   color: black;
-  padding-left: 60px;
+  padding-left: 80px;
+  font-size: 20px;
 }
 
 .nav-links {
@@ -28,7 +29,6 @@
 }
 
 .nav-links ul li {
-  background-color: red;
   margin-left: 1px;
 }
 
@@ -49,8 +49,13 @@
 
 .cart-icon__ctn span {
   position: absolute;
+  background-color: yellow;
+  border-radius: 20px;
+  color: black;
   bottom: 6px;
-  right: 13px;
+  right: 10px;
+  font-size: 20px;
+  padding: .5px;
 }
 
 .cart-icon__ctn img {

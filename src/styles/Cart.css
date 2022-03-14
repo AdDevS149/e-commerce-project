@@ -1,3 +1,6 @@
 .cart-items img {
+    display: fex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     width: 100px;
 }

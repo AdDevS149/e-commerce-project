@@ -1,34 +1,35 @@
 import { useParams } from 'react-router-dom';
-import { getProducts } from '../../data';
 import '../../styles/ProductDetails.css';
 
 import { useContext } from 'react';
-import { CounterContext } from '../../contexts/CounterContext';
+import { DataContext } from '../../contexts/DataContext';
 
 export default function ProductDetails() {
-  const { increaseCount } = useContext(CounterContext);
+  const value = useContext(DataContext);
+  const [products] = value.products;
+  const addToCart = value.addToCart;
+
   let params = useParams();
-  let products = getProducts(params.productId);
 
-  const details = products.find((product) => product.urlName === params.productId);
-
-  return (
-    <>
-      <div className='details-container'>
+  const productDetails = products
+    .filter((product) => product.urlName === params.productId)
+    .map((productDetail) => (
+      <div className='details-container' key={productDetail.id}>
         <div className='details-img'>
-          <img src={details.image} alt={details.item} />
+          <img src={productDetail.image} alt={productDetail.item} />
         </div>
         <div className='detail-items__description'>
-          <p className='item'>{details.item}</p>
-          <p className='price'>${details.price}</p>
-          <button className='add-btn' onClick={increaseCount}>
+          <p className='item'>{productDetail.item}</p>
+          <p className='price'>${productDetail.price}</p>
+          <button onClick={() => addToCart(productDetail.id)} className='add-btn'>
             ADD TO CART
           </button>
           <br />
           <button className='checkout-btn'>PROCEED TO CHECKOUT</button>
-          <p className='description'>{details.description}</p>
+          <p className='description'>{productDetail.description}</p>
         </div>
       </div>
-    </>
-  );
+    ));
+
+  return <>{productDetails}</>;
 }

@@ -13,3 +13,9 @@ const SampleContextA = () => {
 };
 
 // export default SampleContextA
+
+
+// const value = useContext(DataContext)
+// const [products] = value.products
+// const addCart = value.addCart
+//  const { increaseCount } = useContext(CounterContext);

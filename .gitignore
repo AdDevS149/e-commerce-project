@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /Samples
+tutorial.js
+.tutorial.js

@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom';
-import { getProducts } from '../../data';
 import '../../styles/FeaturedCollection.css';
 
 import { useContext } from 'react';
-import { CounterContext } from '../../contexts/CounterContext';
+import { DataContext } from '../../contexts/DataContext';
 
 const FeaturedCollection = () => {
-  let products = getProducts();
-  const { increaseCount } = useContext(CounterContext);
+  const value = useContext(DataContext);
+  const [products] = value.products;
+  const addToCart = value.addToCart;
 
   const featuredList = products
     .filter((product) => product.featured === true)
     .map((filteredProduct) => (
       <>
-        <div className='featured-collection__card'>
+        <div className='featured-collection__card' key={filteredProduct.id}>
           <main>
-            <Link to={`/products/${filteredProduct.urlName}`} key={filteredProduct.urlName}>
+            <Link to={`/products/${filteredProduct.urlName}`} key={filteredProduct.id}>
               <img src={filteredProduct.image} alt={filteredProduct.item} />
             </Link>
             <ul>
@@ -24,7 +24,7 @@ const FeaturedCollection = () => {
                 <span>${filteredProduct.price}</span>
               </li>
             </ul>
-            <button className='featured-btn' onClick={increaseCount}>
+            <button onClick={() => addToCart(filteredProduct.id)} className='featured-btn'>
               ADD TO CART
             </button>
           </main>

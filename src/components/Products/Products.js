@@ -1,13 +1,14 @@
 import { Link, Outlet } from 'react-router-dom';
-import { getProducts } from '../../data';
 import '../../styles/Products.css';
 
 import { useContext } from 'react';
-import { CounterContext } from '../../contexts/CounterContext';
+import { DataContext } from '../../contexts/DataContext';
+// import { CartContext } from '../../contexts/CartContext';
 
 const Products = () => {
-  let products = getProducts();
-  const { increaseCount } = useContext(CounterContext);
+  const value = useContext(DataContext);
+  const [products] = value.products;
+  const addToCart = value.addToCart;
 
   const productDisplay = products.map((product) => (
     <div key={product.id}>
@@ -22,7 +23,7 @@ const Products = () => {
           </li>
         </ul>
 
-        <button className='products-btn' onClick={increaseCount}>
+        <button onClick={() => addToCart(product.id)} className='products-btn'>
           ADD TO CART
         </button>
       </div>
@@ -38,3 +39,36 @@ const Products = () => {
   );
 };
 export default Products;
+
+// import { Link } from 'react-router-dom';
+// import { getProducts } from '../../data';
+// import '../../styles/Products.css';
+
+// import { useContext } from 'react';
+// import { DataContext } from '../../contexts/DataProvider';
+
+// const Products = () => {
+//   const [products] = useContext(DataContext);
+
+//   return (
+//     <div className='products'>
+//       {products.map((product) => (
+//         <div className='products-card' key={product.id}>
+//           <Link to={`/products/${product.id}`}>
+//             <img src={product.image} alt={product.title} />
+//           </Link>
+//           <div className='product-box'>
+//             <h3 title={product.item}>
+//               <Link to={`/products/${product.id}`}>{product.item}</Link>
+//             </h3>
+//             <h4>{product.price}</h4>
+//             <p>{product.description}</p>
+//             <button className='products-btn'>ADD TO CART</button>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Products;

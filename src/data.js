@@ -1,5 +1,3 @@
-// import CirrusImage from './Assets/images/cirrus1.jpeg'
-
 let products = [
   {
     id: 1,
