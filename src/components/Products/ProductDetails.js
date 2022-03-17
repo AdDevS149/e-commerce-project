@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import '../../styles/ProductDetails.css';
+// import {getProducts} from '../../data'
 
 import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
@@ -7,7 +8,10 @@ import { DataContext } from '../../contexts/DataContext';
 export default function ProductDetails() {
   const value = useContext(DataContext);
   const [products] = value.products;
+  //  const [cart] = value.cart
+
   const addToCart = value.addToCart;
+
 
   let params = useParams();
 
@@ -21,7 +25,7 @@ export default function ProductDetails() {
         <div className='detail-items__description'>
           <p className='item'>{productDetail.item}</p>
           <p className='price'>${productDetail.price}</p>
-          <button onClick={() => addToCart(productDetail.id)} className='add-btn'>
+          <button onClick={() => addToCart(productDetail)} className='add-btn'>
             ADD TO CART
           </button>
           <br />
@@ -30,6 +34,8 @@ export default function ProductDetails() {
         </div>
       </div>
     ));
+
+// console.log('prodDet', cart)
 
   return <>{productDetails}</>;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+// import {Outlet} from 'react-router'
 
 import './styles/App.css';
 
@@ -7,9 +8,9 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import Products from './components/Products/Products';
 import Svg from './Assets/Svg';
-// import Cart from './components/Cart/Cart';
+import Cart from './components/Cart/Cart';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import ProductDetails from './components/Products/ProductDetails';
 
@@ -23,8 +24,10 @@ function App() {
 
       <DataContextProvider>
        
-          <Router>
+          <BrowserRouter>
             <Navigation />
+
+        
 
             {/* ********** Routes ********** */}
             <section>
@@ -32,13 +35,13 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path='products' element={<Products />} />
                 <Route path='products/:productId' element={<ProductDetails />} />
-                {/* <Route path='cart' element={<Cart />} /> */}
-                <Route path='/svg' element={<Svg />} />
+                <Route path='cart' element={<Cart />} />
+                <Route path='svg' element={<Svg />} />
                 <Route path='*' element={<h1>Under Construction!!</h1>}></Route>
               </Routes>
             </section>
             <Footer />
-          </Router>
+          </BrowserRouter>
        
       </DataContextProvider>
       

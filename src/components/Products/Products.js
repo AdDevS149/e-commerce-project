@@ -3,11 +3,11 @@ import '../../styles/Products.css';
 
 import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
-// import { CartContext } from '../../contexts/CartContext';
 
 const Products = () => {
   const value = useContext(DataContext);
   const [products] = value.products;
+  //  const [cart] = value.cart
   const addToCart = value.addToCart;
 
   const productDisplay = products.map((product) => (
@@ -23,13 +23,15 @@ const Products = () => {
           </li>
         </ul>
 
-        <button onClick={() => addToCart(product.id)} className='products-btn'>
+        <button onClick={() => addToCart(product)} className='products-btn'>
           ADD TO CART
         </button>
       </div>
       <Outlet />
     </div>
   ));
+
+  // console.log('product', cart)
 
   return (
     <div>
@@ -40,35 +42,3 @@ const Products = () => {
 };
 export default Products;
 
-// import { Link } from 'react-router-dom';
-// import { getProducts } from '../../data';
-// import '../../styles/Products.css';
-
-// import { useContext } from 'react';
-// import { DataContext } from '../../contexts/DataProvider';
-
-// const Products = () => {
-//   const [products] = useContext(DataContext);
-
-//   return (
-//     <div className='products'>
-//       {products.map((product) => (
-//         <div className='products-card' key={product.id}>
-//           <Link to={`/products/${product.id}`}>
-//             <img src={product.image} alt={product.title} />
-//           </Link>
-//           <div className='product-box'>
-//             <h3 title={product.item}>
-//               <Link to={`/products/${product.id}`}>{product.item}</Link>
-//             </h3>
-//             <h4>{product.price}</h4>
-//             <p>{product.description}</p>
-//             <button className='products-btn'>ADD TO CART</button>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default Products;
