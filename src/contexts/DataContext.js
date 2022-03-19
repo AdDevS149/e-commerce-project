@@ -1,26 +1,60 @@
 import React, { useState, createContext } from 'react';
-// import {getProducts} from '../data'
 import Products from '../data';
-// Bringing in product array of items
 
 export const DataContext = createContext();
 
 export const DataContextProvider = (props) => {
-  // Initial state with all products available in array from data(future database)
   const [products, setProducts] = useState([...Products]);
-
   const [cart, setCart] = useState([]);
 
+  const cartTotal = cart.reduce((total, product) => total + product.price * product.qty, 0);
+
   const addToCart = (product) => {
-    // Initial cart state to be used in cart component(and or other components), with all products available
-    // Products will be filtered through with methods in the components
     setCart([...cart, product]);
+    const inCart = cart.find((item) => item.id === product.id);
+    if (inCart) {
+      setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
+    } else {
+      setCart([...cart, { ...product, qty: 1 }]);
+    }
   };
+
+  const removeFromCart = (product) => {
+    // Filtering un-targeted items into a new Array
+    // Return the new array
+    const newCart = cart.filter((item) => item.id !== product.id);
+    setCart([...newCart]);
+  };
+
+  const increaseCartQty = (product) => {
+    const inCart = cart.find((item) => item.id === product.id);
+    if (inCart) {
+      setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
+    } else {
+      setCart([...cart, { ...product, qty: 1 }]);
+    }
+  };
+
+  const decreaseCartQty = (product) => {
+    const exist = cart.find((item) => item.id === product.id);
+    if (exist.qty === 1) {
+      setCart(cart.filter((item) => item.id !== product.id));
+    } else {
+      setCart(cart.map((item) => (item.id === product.id ? { ...exist, qty: exist.qty - 1 } : item)));
+    }
+  };
+
+  // const productTax = productPrice x (state tax)
+  // const productShippingCost = ()
 
   const value = {
     products: [products, setProducts],
     cart: [cart, setCart],
     addToCart: addToCart,
+    removeFromCart: removeFromCart,
+    increaseCartQty: increaseCartQty,
+    decreaseCartQty: decreaseCartQty,
+    cartTotal: cartTotal,
   };
 
   return <DataContext.Provider value={value}>{props.children}</DataContext.Provider>;

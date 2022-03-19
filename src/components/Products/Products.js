@@ -7,13 +7,13 @@ import { DataContext } from '../../contexts/DataContext';
 const Products = () => {
   const value = useContext(DataContext);
   const [products] = value.products;
-  //  const [cart] = value.cart
+  // const [cart] = value.cart;
   const addToCart = value.addToCart;
 
   const productDisplay = products.map((product) => (
     <div key={product.id}>
       <div className='products-card'>
-        <Link to={`/products/${product.urlName}`} key={product.id}>
+        <Link to={`/products/${product.urlName}`} key={product.urlName}>
           <img src={product.image} alt={product.item} />
         </Link>
         <ul>
@@ -31,8 +31,6 @@ const Products = () => {
     </div>
   ));
 
-  // console.log('product', cart)
-
   return (
     <div>
       <h2 className='products-card__text'>Shop</h2>
@@ -41,4 +39,3 @@ const Products = () => {
   );
 };
 export default Products;
-

@@ -8,10 +8,8 @@ import { DataContext } from '../../contexts/DataContext';
 export default function ProductDetails() {
   const value = useContext(DataContext);
   const [products] = value.products;
-  //  const [cart] = value.cart
 
   const addToCart = value.addToCart;
-
 
   let params = useParams();
 
@@ -35,7 +33,7 @@ export default function ProductDetails() {
       </div>
     ));
 
-// console.log('prodDet', cart)
+  // console.log('prodDet', cart)
 
   return <>{productDetails}</>;
 }

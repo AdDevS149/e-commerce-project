@@ -1,42 +1,58 @@
 import React, { useContext } from 'react';
 // import Products from '../../data';
 import { DataContext } from '../../contexts/DataContext';
+// import products from '../../data';
 import '../../styles/Cart.css';
 
 const Cart = () => {
   const value = useContext(DataContext);
-  // const [products] = value.products;
   const [cart] = value.cart;
+  // const addToCart = value.addToCart;
+  const removeFromCart = value.removeFromCart;
+  const increaseCartQty = value.increaseCartQty;
+  const decreaseCartQty = value.decreaseCartQty;
+  const cartTotal = value.cartTotal;
 
-  const cartItems = cart.map((item) => (
-    <div class='items'>
-      <span>X</span>
-      <img src={item.image} alt='Empty' />
-      <h3>{item.item}</h3>
-      <h3>{item.price}</h3>
+  // const itemPrice = products.qty * products.price;
+  // console.log(itemPrice)
 
-      <span>+</span>
-      <span>{cart.length}</span>
-      <span>-</span>
-      <h3 className="cart-total">$20.00</h3>
+  const cartItems = cart.map((items) => (
+    <div className='items' key={items.id}>
+      <button onClick={() => removeFromCart(items)}>X</button>
+      <img src={items.image} alt={items.item} />
+      <h3>{items.item}</h3>
+      <h3>{items.price}</h3>
+
+      <button onClick={() => increaseCartQty(items)}>+</button>
+      <span>{items.qty}</span>
+      <button onClick={() => decreaseCartQty(items)}>-</button>
+      <h3 className='cart-total'>${items.qty * items.price}</h3>
+      <div>
+        <div></div>
+      </div>
     </div>
   ));
+
   return (
-    <div class='flex-container'>
-      <div class='cart-item__headings'>
-        <h1>Products</h1>
-        <h1>Price</h1>
-        <h1>Quantity</h1>
-        <h1>Total</h1>
+    <div>
+      <div className='flex-container'>
+        <div className='cart-item__headings'>
+          <h1>Products</h1>
+          <h1>Price</h1>
+          <h1>Quantity</h1>
+          <h1>Total</h1>
+        </div>
+        <hr />
+        <div>{cart.length === 0 && <h1>Cart Is Empty</h1>}</div>
+
+        <div>{cartItems}</div>
+
+        <div className='cart-basket'>Cart Total: ${cartTotal}</div>
       </div>
-      <hr/>
-      <div>{cartItems}</div>
-      <h3 className="cart-basket">
-        Basket Total: <span>$40.00</span>
-      </h3>
-      <button className="cart-checkout__btn">Start Checkout</button>
+      <div>
+        <button className='cart-checkout__btn'>Start Checkout</button>
+      </div>
     </div>
   );
 };
-
 export default Cart;

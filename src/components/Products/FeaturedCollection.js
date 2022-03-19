@@ -6,10 +6,8 @@ import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
 
 const FeaturedCollection = () => {
-  // let products = getProducts()
   const value = useContext(DataContext);
   const [products] = value.products;
-  // const [cart] = value.cart;
 
   const addToCart = value.addToCart;
 
@@ -36,8 +34,6 @@ const FeaturedCollection = () => {
         </div>
       </div>
     ));
-
-  // console.log('cart', cart);
 
   return (
     <>
