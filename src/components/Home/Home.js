@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import FeaturedCollection from '../Products/FeaturedCollection';
 import '../../styles/Home.css';
+import Button from "react-bootstrap/Button";
+
 
 const Home = () => {
   return (
@@ -27,6 +29,7 @@ const Home = () => {
         </p>
         <button className='featured-item__btn'>STUDIO BAG</button>
       </div>
+      <Button>TTest Button</Button>
       <FeaturedCollection />
     </div>
   );

@@ -8,12 +8,13 @@ import '../../styles/Navigation.css';
 const Navigation = () => {
   // const { count } = useContext(CounterContext);
   const value = useContext(DataContext);
-  const [cartItems] = value.cart;
-  // const addToCart = value.addToCart;
-
+  const [cart] = value.cart;
+  const cartCountTotal = value.cartCountTotal;
+ 
+console.log('navigation', cart.length)
   return (
     <>
-      <nav className='nav-bar'>
+      <nav className='nav-bar' >
         <div>
           <h1>
             <Link to='/' className='logo'>
@@ -46,7 +47,8 @@ const Navigation = () => {
           <Link to='/cart' className='cart'>
             <div className='cart-icon__ctn'>
               <img src={'/images/shopping-bag.png'} alt='cart-icon' />
-              <span>{cartItems.length}</span>
+
+              <span>{cartCountTotal}</span>
             </div>
           </Link>
         </div>

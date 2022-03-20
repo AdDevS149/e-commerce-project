@@ -7,10 +7,12 @@ export const DataContextProvider = (props) => {
   const [products, setProducts] = useState([...Products]);
   const [cart, setCart] = useState([]);
 
+  const cartCountTotal = cart.reduce((total, product) => total + product.qty, 0);
+
   const cartTotal = cart.reduce((total, product) => total + product.price * product.qty, 0);
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    // setCart([...cart, product]);
     const inCart = cart.find((item) => item.id === product.id);
     if (inCart) {
       setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
@@ -51,6 +53,7 @@ export const DataContextProvider = (props) => {
     products: [products, setProducts],
     cart: [cart, setCart],
     addToCart: addToCart,
+    cartCountTotal: cartCountTotal,
     removeFromCart: removeFromCart,
     increaseCartQty: increaseCartQty,
     decreaseCartQty: decreaseCartQty,
