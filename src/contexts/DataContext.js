@@ -12,7 +12,6 @@ export const DataContextProvider = (props) => {
   const cartTotal = cart.reduce((total, product) => total + product.price * product.qty, 0);
 
   const addToCart = (product) => {
-    // setCart([...cart, product]);
     const inCart = cart.find((item) => item.id === product.id);
     if (inCart) {
       setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
@@ -29,23 +28,13 @@ export const DataContextProvider = (props) => {
   };
 
   const increaseCartQty = (product) => {
-    const inCart = cart.find((item) => item.id === product.id);
-    if (inCart) {
-      setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
-    } else {
-      setCart([...cart, { ...product, qty: 1 }]);
-    }
+    setCart((cart) => cart.map((item) => (product.id === item.id ? { ...item, qty: item.qty + (item.qty < 25 ? 1 : 0) } : item)));
   };
 
   const decreaseCartQty = (product) => {
-    const exist = cart.find((item) => item.id === product.id);
-    if (exist.qty === 1) {
-      setCart(cart.filter((item) => item.id !== product.id));
-    } else {
-      setCart(cart.map((item) => (item.id === product.id ? { ...exist, qty: exist.qty - 1 } : item)));
-    }
+    setCart((cart) => cart.map((item) => (product.id === item.id ? { ...item, qty: item.qty - (item.qty > 1 ? 1 : 0) } : item)));
   };
-
+  console.log('cartitems', cart);
   // const productTax = productPrice x (state tax)
   // const productShippingCost = ()
 
