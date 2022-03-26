@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import '../../styles/ProductDetails.css';
-// import {getProducts} from '../../data'
+
 
 import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
@@ -32,8 +32,6 @@ export default function ProductDetails() {
         </div>
       </div>
     ));
-
-  // console.log('prodDet', cart)
 
   return <>{productDetails}</>;
 }

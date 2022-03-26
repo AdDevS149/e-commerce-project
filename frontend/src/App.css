@@ -1,3 +1,13 @@
+/* body {
+  background-color: red;
+}
+ .mt-0 {
+   margin-left: 20px;
+ }
+
+ .mt-2 {
+   margin-left: 30px;
+ } */
 /* .nav-bar {
   display: flex;
   align-items: center;
@@ -30,6 +40,4 @@
   margin-left: 20rem;
 } */
 
-.fs-1 {
-  font-size: 3rem;
-}
+

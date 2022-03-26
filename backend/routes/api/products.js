@@ -1,12 +1,25 @@
 const express = require('express');
 const uuid = require('uuid');
 const router = express.Router();
-const products = require('../../data');
+const products = require('../../ProductItems');
 
+
+// Get All Products
 router.get('/', (req, res) => {
-  res.json(products);
+  res.json({ items: products });
 });
 
+// Get One Product
+router.get('/:id', (req, res) => {
+  const isProduct = products.some((product) => product.id === parseInt(req.params.id));
+  if (isProduct) {
+    res.json(products.filter((product) => product.id === parseInt(req.params.id)));
+  } else {
+    res.status(400).json({ msg: `No product with id of ${req.params.id}` });
+  }
+});
+
+// Create Product
 router.post('/', (req, res) => {
   const newProduct = {
     id: uuid.v4(),
@@ -19,33 +32,36 @@ router.post('/', (req, res) => {
     qty: req.body.qty,
     productInStock: req.body.productInStock,
   };
-
   // Validation
-  if (!newProduct.urlName || !newProduct.item || !newProduct.image || !newProduct.price || !newProduct.description || !newProduct.qty || !newProduct.productInStock) {
+  if (!newProduct.urlName || !newProduct.item || !newProduct.image || !newProduct.price || !newProduct.description || !newProduct.featured || !newProduct.qty || !newProduct.productInStock) {
     return res.status(400).json({ msg: 'Product not added successfully' });
   }
   products.push(newProduct);
   res.json(products);
 });
 
+// Update Product
 router.put('/:id', (req, res) => {
+  // Identify product that will be updated
   const prodToUpdate = products.find((product) => product.id === parseInt(req.params.id));
-  updateProduct = req.body;
-  products.forEach((product) => {
+  //
+  const updatedProduct = products.map((product) => {
     if (product.id === parseInt(req.params.id)) {
-      product.item = updateProduct.item ? updateProduct.item : updateProduct.title;
-      product.description = updateProduct.description ? updateProduct.description : updateProduct.description;
-
-      res.json({ msg: 'Member successfully updated', products });
+      product = {
+        ...product,
+        ...req.body,
+      };
     }
+    return product;
   });
   if (prodToUpdate) {
-    res.json(products.filter((product) => product.id === parseInt(req.params.id)));
+    res.json({ products: updatedProduct });
   } else {
     res.status(400).json({ msg: `No product found with an id of ${req.params.id}` });
   }
 });
 
+//Delete Product
 router.delete('/:id', (req, res) => {
   const prodToDelete = products.find((product) => product.id === parseInt(req.params.id));
 

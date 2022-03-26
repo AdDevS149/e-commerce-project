@@ -1,17 +1,27 @@
-import React, { useState, createContext } from 'react';
-import Products from '../data';
+import React, { useState, useEffect, createContext } from 'react';
+// import Products from '../data';
+import axios from 'axios';
 
 export const DataContext = createContext();
 
 export const DataContextProvider = (props) => {
-  const [products, setProducts] = useState([...Products]);
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   const cartCountTotal = cart.reduce((total, product) => total + product.qty, 0);
-
   const cartTotal = cart.reduce((total, product) => total + product.price * product.qty, 0);
 
+  useEffect(() => {
+   axios.get('http://localhost:5005/api/products/').then((response) => {
+      setProducts(response.data);
+     console.log(response.data)
+    });
+  }, []);
+
   const addToCart = (product) => {
+
+
+    
     const inCart = cart.find((item) => item.id === product.id);
     if (inCart) {
       setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
@@ -34,7 +44,7 @@ export const DataContextProvider = (props) => {
   const decreaseCartQty = (product) => {
     setCart((cart) => cart.map((item) => (product.id === item.id ? { ...item, qty: item.qty - (item.qty > 1 ? 1 : 0) } : item)));
   };
-  console.log('cartitems', cart);
+
   // const productTax = productPrice x (state tax)
   // const productShippingCost = ()
 
