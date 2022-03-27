@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import '../../styles/Products.css';
 
-import axios from 'axios';
-
 import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
+import { Container } from 'react-bootstrap';
 
 const Products = () => {
   const value = useContext(DataContext);
-  // const [products] = value.products;
+  const [products] = value.products;
   const addToCart = value.addToCart;
-  const [products, setProducts] = useState([]);
-
-
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:5005/api/products').then((response) => {
-  //    response.send(something)
-  //   });
-  // }, []);
 
   const productDisplay = products.map((product) => (
-    <>
-      <div key={product.id}>
+    <Container key={product.id}>
+      <div>
         <div className='products-card'>
           <Link to={`/products/${product.urlName}`} key={product.urlName}>
             <img src={product.image} alt={product.item} />
@@ -41,7 +31,7 @@ const Products = () => {
         </div>
         <Outlet />
       </div>
-    </>
+    </Container>
   ));
 
   return (

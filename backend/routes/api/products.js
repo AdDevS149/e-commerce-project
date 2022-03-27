@@ -3,7 +3,6 @@ const uuid = require('uuid');
 const router = express.Router();
 const products = require('../../ProductItems');
 
-
 // Get All Products
 router.get('/', (req, res) => {
   res.json({ items: products });

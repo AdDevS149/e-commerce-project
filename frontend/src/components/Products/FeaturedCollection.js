@@ -20,26 +20,24 @@ const FeaturedCollection = () => {
     .filter((product) => product.featured === true)
     .map((filteredProduct) => (
       <div key={filteredProduct.id}>
-        <main>
-          <Container>
-            <Row>
-              <Col>
-                <Card>
-                  <Link to={`/products/${filteredProduct.urlName}`}>
-                    <Card.Img variant='top' src={filteredProduct.image} alt={filteredProduct.item} />
-                  </Link>
-                  <Card.Body>
-                    <Card.Title>{filteredProduct.item}</Card.Title>
-                    <Card.Text>${filteredProduct.price}</Card.Text>
+      <Row xs={1} md={2} className="g-4"> 
+      <Col>    
+        <Card style={{ width: '15rem' }}>
+          <Link to={`/products/${filteredProduct.urlName}`}>
+            <Card.Img className='small' variant='top' src={filteredProduct.image} alt={filteredProduct.item} />
+          </Link>
+          <Card.Body>
+            <Card.Title>{filteredProduct.item}</Card.Title>
+            <Card.Text>${filteredProduct.price}</Card.Text>
 
-                    <button onClick={() => addToCart(filteredProduct.id)}>ADD TO CART</button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-        </main>
-      </div>
+            <button onClick={() => addToCart(filteredProduct.id)}>ADD TO CART</button>
+          </Card.Body>
+        </Card>
+        </Col> 
+         </Row>
+       </div>
+     
+
     ));
 
   return (

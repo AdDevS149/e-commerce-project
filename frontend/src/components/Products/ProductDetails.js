@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import '../../styles/ProductDetails.css';
 
-
 import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
 

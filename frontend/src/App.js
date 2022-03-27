@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/custom.css'
+import './css/custom.css';
 // import {Outlet} from 'react-router'
 
-// import "./App.css"
+import "./App.css"
 
 import NavBar from './components/layouts/NavBar';
 import Footer from './components/Footer/Footer';
@@ -33,10 +33,6 @@ function App() {
               <Route path='cart' element={<Cart />} />
               <Route path='svg' element={<Svg />} />
               <Route path='*' element={<Navigate replace to='/' />} />
-            </Routes>
-            <Routes>
-
-              
             </Routes>
           </section>
           <Footer />
