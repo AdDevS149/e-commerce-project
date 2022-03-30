@@ -30,7 +30,7 @@ const FeaturedCollection = () => {
             <Card.Title>{filteredProduct.item}</Card.Title>
             <Card.Text>${filteredProduct.price}</Card.Text>
 
-            <button onClick={() => addToCart(filteredProduct.id)}>ADD TO CART</button>
+            <button onClick={() => addToCart(filteredProduct)}>ADD TO CART</button>
           </Card.Body>
         </Card>
         </Col> 

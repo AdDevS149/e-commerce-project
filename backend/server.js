@@ -19,4 +19,3 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/products', require('./routes/api/products'));
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-``;
