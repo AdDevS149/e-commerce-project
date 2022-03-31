@@ -11,6 +11,7 @@ import Home from './components/Home/Home';
 import Products from './components/Products/Products';
 import Svg from './Assets/Svg';
 import Cart from './components/Cart/Cart';
+import WorkSpace from './components/TestArea/WorkSpace';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -32,6 +33,7 @@ function App() {
               <Route path='products/:productId' element={<ProductDetails />} />
               <Route path='cart' element={<Cart />} />
               <Route path='svg' element={<Svg />} />
+              <Route path='test' element={<WorkSpace />} />
               <Route path='*' element={<Navigate replace to='/' />} />
             </Routes>
           </section>
