@@ -1,12 +1,12 @@
 const asyncHandler = require('express-async-handler');
 
-const Product = require('../models/productModel')
+// const Product = require('../models/productModel')
 
 // @desc     Get products
 // @route    GET /api/products
 // @access   Private
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Products.find()
+  const products = await Products.find();
 
   res.status(200).json(products);
 });
@@ -32,7 +32,6 @@ const updateProduct = asyncHandler(async (req, res) => {
 // @desc     Delete product
 // @route    DELETE /api/products/:id
 // @access   Private
-
 const deleteProduct = asyncHandler(async (req, res) => {
   res.status(200).json({ msg: 'Delete products' });
 });
