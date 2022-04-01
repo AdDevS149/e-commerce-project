@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 // import Products from '../../data';
 import { DataContext } from '../../contexts/DataContext';
+import { useNavigate } from 'react-router-dom';
 // import products from '../../data';
 import '../../styles/Cart.css';
 
 const Cart = () => {
+
+
+  const navigate = useNavigate()
+
   const value = useContext(DataContext);
   const [cart] = value.cart;
   // const addToCart = value.addToCart;
@@ -34,8 +39,9 @@ const Cart = () => {
   ));
 
   return (
+    <> 
     <div>
-      <div className='flex-container'>
+      <div className='flex'>
         <div className='cart-item__headings'>
           <h1>Products</h1>
           <h1>Price</h1>
@@ -53,6 +59,9 @@ const Cart = () => {
         <button className='cart-checkout__btn'>Start Checkout</button>
       </div>
     </div>
+  <button onClick={() => navigate(-1)}>Go Back</button>
+</>
+
   );
 };
 export default Cart;

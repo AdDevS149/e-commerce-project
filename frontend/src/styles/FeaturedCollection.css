@@ -1,4 +1,4 @@
-.featured-collection__container {
+/* .featured-collection__div {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -11,12 +11,12 @@
   font-size: 2.5rem;
 }
 
-.featured-collection__container > div img {
+.featured-collection__div > div img {
   width: 250px;
   margin: 0;
 }
 
-.featured-collection__container > div li {
+.featured-collection__div > div li {
   font-size: 1.2rem;
   font-weight: bold;
   width: 100%;
@@ -37,4 +37,4 @@
 
 main {
   border: 1px solid black;
-}
+} */

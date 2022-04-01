@@ -15,7 +15,7 @@ export default function ProductDetails() {
   const productDetails = products
     .filter((product) => product.urlName === params.productId)
     .map((productDetail) => (
-      <div className='details-container' key={productDetail.id}>
+      <div className='details-div' key={productDetail.id}>
         <div className='details-img'>
           <img src={productDetail.image} alt={productDetail.item} />
         </div>

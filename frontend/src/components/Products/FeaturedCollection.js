@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
-import { Button } from 'bootstrap';
-import { Container } from 'react-bootstrap';
+// import { div } from 'react-bootstrap';
+// import { Col } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
+// import { Button } from 'bootstrap';
+// import { div } from 'react-bootstrap';
 
 const FeaturedCollection = () => {
   const value = useContext(DataContext);
@@ -20,24 +20,22 @@ const FeaturedCollection = () => {
     .filter((product) => product.featured === true)
     .map((filteredProduct) => (
       <div key={filteredProduct.id}>
-      <Row xs={1} md={2} className="g-4"> 
-      <Col>    
-        <Card style={{ width: '15rem' }}>
-          <Link to={`/products/${filteredProduct.urlName}`}>
-            <Card.Img className='small' variant='top' src={filteredProduct.image} alt={filteredProduct.item} />
-          </Link>
-          <Card.Body>
-            <Card.Title>{filteredProduct.item}</Card.Title>
-            <Card.Text>${filteredProduct.price}</Card.Text>
+        <div xs={1} md={2} className='g-4'>
+          <div>
+            <div style={{ width: '15rem' }}>
+              <Link to={`/products/${filteredProduct.urlName}`}>
+                <img className='small' variant='top' src={filteredProduct.image} alt={filteredProduct.item} />
+              </Link>
+              <div>
+                <div>{filteredProduct.item}</div>
+                <div>${filteredProduct.price}</div>
 
-            <button onClick={() => addToCart(filteredProduct)}>ADD TO CART</button>
-          </Card.Body>
-        </Card>
-        </Col> 
-         </Row>
-       </div>
-     
-
+                <button onClick={() => addToCart(filteredProduct)}>ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     ));
 
   return (

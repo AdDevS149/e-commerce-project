@@ -12,9 +12,9 @@ export const DataContextProvider = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5005/api/products/')
+      .get('http://localhost:5005/api/products')
       .then((res) => {
-        setProducts(res.data.items);
+        setProducts(res.data.product);
       })
       .catch((err) => console.log(err));
   }, []);

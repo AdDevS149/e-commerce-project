@@ -1,20 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import FeaturedCollection from '../Products/FeaturedCollection';
 import '../../styles/Home.css';
-import { Container } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import { Image } from 'react-bootstrap';
-import { Nav } from 'react-bootstrap';
+
 
 
 const Home = () => {
+
+  const navigate = useNavigate()
   return (
-    <main>
-      <Container>
-        <Row>
+    <>
+ {/* Replace(replace history(clear history go back to beginning) to go back programatically  */}
+    <button onClick={() => navigate('cart', /*{replace: true}*/)}>Add To Cart/Place Order</button>
+      <div>
+
+        <div>
           <figure className='position-relative'>
             <img width='100%' height='700px' className='img-fluid' src={'/images/ben-white-unsplash.jpeg'} alt='man modeling a shoulder bag' />
 
@@ -22,23 +22,23 @@ const Home = () => {
 
             <figcaption>
               <Link to={'/products'}>
-                <Button className='btn'>SHOW NOW</Button>
+                <button className='btn'>SHOW NOW</button>
               </Link>
             </figcaption>
           </figure>
-          <Col sm={12}></Col>
-        </Row>
+          <div sm={12}></div>
+        </div>
 
-        <Row className='px-1 my-2'>
-          <Col sm={5}></Col>
-        </Row>
+        <div className='px-1 my-2'>
+          <div sm={5}></div>
+        </div>
 
-        <Row className='px-4 my-5'>
-          <Col sm={4}>
-            <Image src={'/images/studio-bag.png'} fluid rounded className='' />
-          </Col>
+        <div className='px-4 my-5'>
+          <div sm={4}>
+            <img src={'/images/studio-bag.png'}  alt="soon to come" className='' />
+          </div>
 
-          <Col sm={4}>
+          <div sm={4}>
             <h4 className='font-weight-light'>Designed for fashion. Crafted for sport.</h4>
             <p>
               {' '}
@@ -50,12 +50,12 @@ const Home = () => {
               of form and function.
             </p>
             <button>STUDIO BAG</button>
-          </Col>
-          <Col sm={4}></Col>
-        </Row>
-      </Container>
+          </div>
+          <div sm={4}></div>
+        </div>
+      </div>
       <FeaturedCollection />
-    </main>
+    </>
   );
 };
 
