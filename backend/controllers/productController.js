@@ -1,6 +1,8 @@
 const asyncHandler = require('express-async-handler');
+const mongoose = require('mongoose')
 
 const Product = require('../models/productModel')
+
 
 // @desc     Get products
 // @route    GET /api/products
@@ -15,13 +17,20 @@ const products = await Product.find()
 // @route    POST /api/products
 // @access   Private
 const setProduct = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  if (!req.body) {
     res.status(400);
     throw new Error('Text field needed');
   }
 
   const product = await Product.create({
-    text: req.body.text
+    urlName: req.body.urlName,
+    item: req.body.item,
+    image: req.body.image,
+    price: req.body.price,
+    description: req.body.description,
+    featured: req.body.featured,
+    qty: req.body.qty,
+    productInStock: req.body.productInStock,
   })
   res.status(200).json(product);
 });
@@ -37,7 +46,7 @@ if(!product) {
   res.status(400) 
   throw new Error("Not a valid product")
 }
-const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, {new: true
+const updatedProduct = await Product.findById(req.params.id, req.body, {new: true
 })
 
   res.status(200).json(updatedProduct);

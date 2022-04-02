@@ -18,8 +18,6 @@ app.use('/api/products', require('./routes/productRoutes'));
 
 // // app.use(cors());
 
-// app.use('/api/products', require('./routes/productRoutes'));
-
 app.use(errorHandler);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
