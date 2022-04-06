@@ -14,33 +14,34 @@ export const DataContextProvider = (props) => {
     axios
       .get('http://localhost:5005/api/products')
       .then((res) => {
-        setProducts(res.data.product);
+        setProducts(res.data.products);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const addToCart = (product) => {
-    const inCart = cart.find((item) => item.id === product.id);
+    const inCart = cart.find((item) => item._id === product._id);
     if (inCart) {
-      setCart(cart.map((item) => (item.id === product.id ? { ...inCart, qty: inCart.qty + 1 } : item)));
+      setCart(cart.map((item) => (item._id === product._id ? { ...inCart, qty: inCart.qty + 1 } : item)));
     } else {
       setCart([...cart, { ...product, qty: 1 }]);
     }
   };
 
   const removeFromCart = (product) => {
-    // Filtering un-targeted items into a new Array
-    // Return the new array
-    const newCart = cart.filter((item) => item.id !== product.id);
+    // May have to use _id
+    const newCart = cart.filter((item) => item._id !== product._id);
     setCart([...newCart]);
   };
 
   const increaseCartQty = (product) => {
-    setCart((cart) => cart.map((item) => (product.id === item.id ? { ...item, qty: item.qty + (item.qty < 25 ? 1 : 0) } : item)));
+    // May have to use _id
+    setCart((cart) => cart.map((item) => (item._id === product._id ? { ...item, qty: item.qty + (item.qty < 25 ? 1 : 0) } : item)));
   };
 
   const decreaseCartQty = (product) => {
-    setCart((cart) => cart.map((item) => (product.id === item.id ? { ...item, qty: item.qty - (item.qty > 1 ? 1 : 0) } : item)));
+    // May have to use _id
+    setCart((cart) => cart.map((item) => (product._id === item._id ? { ...item, qty: item.qty - (item.qty > 1 ? 1 : 0) } : item)));
   };
 
   // const productTax = productPrice x (state tax)

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import 'flowbite'
 import './index.css';
 import App from './App';
 // import { DataContextProvider } from './contexts/DataContext';

@@ -1,25 +1,41 @@
 
-import { Fragment, useState, useContext } from 'react'
-import { useParams } from 'react-router-dom';
-
-
+import { Fragment, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
+
 import { XIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
 
+import { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
+import { useParams } from 'react-router-dom';
 
+// const product = {
+//   name: 'Zip Tote Basket',
+//   price: '$220',
+//   rating: 3.9,
+//   href: '#',
+//   description:
+//     'The Zip Tote Basket is the perfect midpoint between shopping tote and comfy backpack. With convertible straps, you can hand carry, should sling, or backpack this convenient and spacious bag. The zip top and durable canvas construction keeps your goods protected for all-day use.',
+//   imageSrc: 'https://tailwindui.com/img/ecommerce-images/product-page-03-product-04.jpg',
+//   imageAlt: 'Back angled view with bag open and handles to the side.',
+//   colors: [
+//     { name: 'Washed Black', bgColor: 'bg-gray-700', selectedColor: 'ring-gray-700' },
+//     { name: 'White', bgColor: 'bg-white', selectedColor: 'ring-gray-400' },
+//     { name: 'Washed Gray', bgColor: 'bg-gray-500', selectedColor: 'ring-gray-500' },
+//   ],
+// }
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProductDetails() {
+export default function Example() {
 
     const value = useContext(DataContext);
   const [products] = value.products;
   const addToCart = value.addToCart;
 
+console.log('example')
 
     
 
@@ -28,7 +44,7 @@ export default function ProductDetails() {
 
 
   let params = useParams();
-
+console.log('params', params) 
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="fixed z-10 inset-0 overflow-y-auto" onClose={setOpen}>
@@ -70,12 +86,14 @@ export default function ProductDetails() {
                 </button>
 
               
-
+  {/* const productDetails = products
+//     .filter((product) => product.urlName === params.productId)
+//     .map((productDetail) => ( */}
 
 {products.filter((product) => product.urlName === params.productId).map((productDetail) => (
 
-
-  <div key={productDetail._id} className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
+  
+  <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
                   <div className="sm:col-span-4 lg:col-span-5">
 
 
@@ -164,7 +182,7 @@ export default function ProductDetails() {
 
                         <div className="mt-6">
                           <button
-                            onClick={() => addToCart(productDetail)}
+                            type="submit"
                             className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                           >
                             Add to bag
@@ -185,79 +203,14 @@ export default function ProductDetails() {
 
               ))}
  </div>
-
               {/* ******************************** */}
             </div>
           </Transition.Child>
         </div>
       </Dialog>
     </Transition.Root>
+ 
   )
+ 
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{/* // import { useParams } from 'react-router-dom';
-// import '../../styles/ProductDetails.css';
-
-// import { useContext } from 'react';
-// import { DataContext } from '../../contexts/DataContext';
-
-// export default function ProductDetails() { */}
-{/* //   const value = useContext(DataContext);
-//   const [products] = value.products;
-
-//   const addToCart = value.addToCart;
-
-//   let params = useParams();
-
-//   const productDetails = products
-//     .filter((product) => product.urlName === params.productId)
-//     .map((productDetail) => (
-//       <div className='details-div' key={productDetail.id}>
-//         <div className='details-img'>
-//           <img src={productDetail.image} alt={productDetail.item} />
-//         </div>
-//         <div className='detail-items__description'>
-//           <p className='item'>{productDetail.item}</p>
-//           <p className='price'>${productDetail.price}</p>
-//           <button onClick={() => addToCart(productDetail)} className='add-btn'>
-//             ADD TO CART
-//           </button>
-//           <br />
-//           <button className='checkout-btn'>PROCEED TO CHECKOUT</button>
-//           <p className='description'>{productDetail.description}</p>
-//         </div>
-//       </div>
-//     ));
-
-//   return <>
-  
-  
-//   {productDetails}</>;
-// } */}
