@@ -1,32 +1,37 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react';
 import { DataContext } from '../../contexts/DataContext';
 import { Link } from 'react-router-dom';
-
 
 const Products = () => {
   const value = useContext(DataContext);
   const [products] = value.products;
   const addToCart = value.addToCart;
 
+
   const productDisplay = products.map((product) => (
-    <div key={product._id} className='group'>
-      <div className='w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8'>
+    <div key={product._id} className='group relative p-4 border-r border-b border-gray-200 sm:p-6'>
+      <div className='rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75'>
         <Link to={`/products/${product.urlName}`}>
-          <img src={product.image} alt={product.item} className='w-full h-full object-center object-cover group-hover:opacity-75' />
+          <img src={product.image} alt={product.item} className='w-full h-full object-center object-cover' />
         </Link>
       </div>
-      <h3 className='mt-4 text-sm text-gray-700'>{product.item}</h3>
-      <p className='mt-1 text-lg font-medium text-gray-900'>${product.price}</p>
-      <button onClick={() => addToCart(product)}>ADD TO CART</button>
+      <div className='pt-10 pb-4 text-center'>
+        <h3 className='text-sm font-medium text-gray-900'>
+          {product.item}
+        </h3>
+        <p className='mt-4 text-base font-medium text-gray-900'>${product.price}</p>
+            <button onClick={() => addToCart(product)} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADD TO CART</button>
+
     </div>
+ </div>
+    
   ));
 
   return (
     <div className='bg-white'>
-      <div className='max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
-        <h2 className='text-bold'>Shop</h2>
-
-        <div className='grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8'>{productDisplay}</div>
+      <div className='max-w-7xl mx-auto overflow-hidden sm:px-6 lg:px-8'>
+        <h2 className='sr-only'>SHOP</h2>
+        <div className='-mx-px border-l border-gray-200 grid grid-cols-2 sm:mx-0 md:grid-cols-3 lg:grid-cols-4'>{productDisplay}</div>
       </div>
     </div>
   );

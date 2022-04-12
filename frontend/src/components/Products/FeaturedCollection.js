@@ -6,22 +6,27 @@ import { DataContext } from '../../contexts/DataContext';
 const FeaturedCollection = () => {
   const value = useContext(DataContext);
   const [products] = value.products;
-
   const addToCart = value.addToCart;
 
   const featuredList = products
     .filter((product) => product.featured === true)
     .map((filteredProduct) => (
-      <div key={filteredProduct._id} className='group'>
-        <div className='w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8'>
-          <Link to={`/products/${filteredProduct.urlName}`}>
-            <img src={filteredProduct.image} alt={filteredProduct.item} className='w-full h-full object-center object-cover group-hover:opacity-75' />
-          </Link>
-        </div>
-        <h3 className='mt-4 text-sm text-gray-700'>{filteredProduct.item}</h3>
-        <p className='mt-1 text-lg font-medium text-gray-900'>${filteredProduct.price}</p>
-        <button onClick={() => addToCart(filteredProduct)}>ADD TO CART</button>
+      <div key={filteredProduct._id} className='group relative p-4 border-r border-b border-gray-200 sm:p-6'>
+      <div className='rounded-lg overflow-hidden bg-gray-200 aspect-w-1 aspect-h-1 group-hover:opacity-75'>
+        <Link to={`/products/${filteredProduct.urlName}`}>
+          <img src={filteredProduct.image} alt={filteredProduct.item} className='w-full h-full object-center object-cover' />
+        </Link>
       </div>
+      <div className='pt-10 pb-4 text-center'>
+        <h3 className='text-sm font-medium text-gray-900'>
+          {/* <span aria-hidden='true' className='absolute inset-0' /> */}
+          {filteredProduct.item}
+        </h3>
+        <p className='mt-4 text-base font-medium text-gray-900'>${filteredProduct.price}</p>
+ </div>
+        <button onClick={() => addToCart(filteredProduct)} className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">ADD TO CART</button>
+
+    </div>
     ));
 
   return (
