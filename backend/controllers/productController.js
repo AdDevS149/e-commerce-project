@@ -3,9 +3,9 @@ const asyncHandler = require('express-async-handler');
 
 const Product = require('../models/productModel');
 
-// @route    POST /api/products (Send new product)
-const setProduct = asyncHandler(async (req, res) => {
-  if (!req.body) {
+// Create Products  // POST / api/products
+const createProduct = asyncHandler(async (req, res) => {
+  if (!req.body.urlName) {
     res.status(400);
     throw new Error('Text field needed');
   }
@@ -23,49 +23,78 @@ const setProduct = asyncHandler(async (req, res) => {
   res.status(200).json(product);
 });
 
-// GET /api/products (Get all products)
+// Retrieve all products  GET/ api/products
 const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find();
-
   res.status(200).json({ products });
 });
 
-// GET /api/products/:id  (Get one product)
-const getOneProduct = asyncHandler(async (req, res) => {
-  const oneProduct = await Product.findById(req.params.id, req.body, { new: true });
+//   // Retrieve all published Tutorials
+//   router.get("/published", products.findAllPublished);
 
-  res.status(200).json(oneProduct);
+// Find one product
+//   // Retrieve a single Tutorial with id
+
+
+const findOneProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (!product) {
+    res.status(400);
+    throw new Error('Product not found');
+  }
+  await Product.findOne();
+  res.status(200).json(product);
 });
 
-// @route    PUT /api/products/:id (update)
+// @desc    Update products
+// @route   PUT /api/products/:id
+// @access  Private
 const updateProduct = asyncHandler(async (req, res) => {
-  const product = await Product.findByIdAndUpdate(req.params.id);
+  const product = await Product.findById(req.params.id);
   if (!product) {
     res.status(400);
     throw new Error('Not a valid product');
   }
-  const updatedProduct = await Product.findById(req.params.id, req.body, { new: true });
+  const updatedProduct = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
   res.status(200).json(updatedProduct);
 });
 
-// @route    DELETE /api/products/:id (Delete one)
+// @desc    Delete products
+// @route   DELETE /api/products
+// @access  Private
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
+
+
+  console.log('The product is')
+  console.log(product)
 
   if (!product) {
     res.status(400);
     throw new Error('Product does not exist');
   }
-  await Product.deleteOne();
+  await Product.deleteOne({ _id: product._id });
 
-  res.status(200).json({ id: req.params.id });
+  res.status(200).json({ message: 'Product Successfully Deleted' });
 });
+
+//   router.delete("/", products.deleteAll);
+//   app.use('/api/p', router);
+// };
 
 module.exports = {
   getProducts,
-  getOneProduct,
-  setProduct,
+  findOneProduct,
+  createProduct,
   updateProduct,
   deleteProduct,
 };
+
+// module.exports = app => {
+//   const products = require("../controllers/productController");
+//   var router = require("express").Router();
+
+//   // Delete a Tutorial with id
+//   router.delete("/:id", products.delete);
+//   // Create a new Tutorial

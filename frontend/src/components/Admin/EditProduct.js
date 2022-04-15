@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams} from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 // import useHistory from 'use-history'
 import { getProducts, editProduct } from '../../service/api';
 
@@ -17,63 +17,41 @@ const initialValue = {
 const EditProduct = () => {
   const [product, setProduct] = useState(initialValue);
   const { urlName, item, image, price, description, featured, qty, productInStock } = product;
-  const { _id } = useParams();
+
+  const { id } = useParams();
+
   // let history = useHistory();
 
-useEffect(() => {
-showProductDetails()
-
-}, []);
+  useEffect(() => {
+    showProductDetails();
+  }, []);
 
   const showProductDetails = async () => {
-    const response = await getProducts(_id);
+    const response = await getProducts(id);
     setProduct(response.data);
   };
 
   const editProductDetailsHandler = async () => {
-    const res = await editProduct(_id, product);
-  //  history.push('all');
+    const response = await editProduct(id, product);
+    console.log(response);
+    //  history.push('all');
   };
 
   const onValueChangeHandler = (e) => {
     console.log(e.target.value);
-    setProduct({...product, [e.target.name]: e.target.value})
-  }
-
-  // const [urlName, setUrlName] = useState('');
-  // const [item, setItem] = useState('');
-  // const [image, setImage] = useState('');
-  // const [price, setPrice] = useState('');
-  // const [description, setDescription] = useState('');
-  // const [featured, setFeatured] = useState("false");
-  // const [qty, setQty] = useState('');
-  // const [productInStock, setProductInStock] = useState('');
-
-  // const [ID, setID] = useState("")
-
-  // const addProduct = () => {
-  //   axios.put(`http://localhost:5005/api/products/${ID}`, {
-  //   urlName,
-  //   item,
-  //   image,
-  //   price,
-  //   description,
-  //   featured,
-  //   qty: qty,
-  //   productInStock
-  //   });
-  // }
-
-
+    setProduct({ ...product, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
       <h1>Update/Edit Product</h1>
       <form>
         <div className='relative border border-gray-300 rounded-md rounded-b-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>UrlName</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            UrlName
+          </label>
           <input
-          autocomplete='off'
+            // autocomplete='off'
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
             name='urlName'
@@ -86,7 +64,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Item </label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Item{' '}
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -100,7 +80,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Image</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Image
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -114,7 +96,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Price</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Price
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -128,7 +112,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Description</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Description
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -142,7 +128,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Featured</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Featured
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -156,7 +144,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Quantity</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Quantity
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -170,7 +160,9 @@ showProductDetails()
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
-          <label htmlFor="item-input" className='block text-xs font-medium text-gray-900'>Quantity In Stock</label>
+          <label htmlFor='item-input' className='block text-xs font-medium text-gray-900'>
+            Quantity In Stock
+          </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             onChange={(e) => onValueChangeHandler(e)}
@@ -182,7 +174,11 @@ showProductDetails()
             // }}
           />
         </div>
-        <button onClick={() => editProductDetailsHandler ()} type='submit'>Edit</button>
+        <Link to='/all'>
+          <button onClick={() => editProductDetailsHandler(product)} type='submit'>
+            Edit
+          </button>
+        </Link>
       </form>
     </div>
   );

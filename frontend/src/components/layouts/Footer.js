@@ -1,11 +1,13 @@
 import React from 'react';
 
 import footerNavigation from '../../data/footer';
+const today = new Date();
 
-const Footer = () => {
+const FooterNew = () => {
   return (
     <footer aria-labelledby='footer-heading' className='bg-white'>
-      <h2 id='footer-heading' className='sr-only'>
+      <p>Copyright &copy; {today.getFullYear()}</p>
+      {/* <h2 id='footer-heading' className='sr-only'>
         Footer
       </h2>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -74,7 +76,7 @@ const Footer = () => {
               <input
                 id='email-address'
                 type='text'
-                autoComplete='email'
+                // autoComplete='email'
                 required
                 className='appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-indigo-500 placeholder-gray-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500'
               />
@@ -91,11 +93,11 @@ const Footer = () => {
         </div>
 
         <div className='border-t border-gray-200 py-10'>
-          <p className='text-sm text-gray-500'>Copyright &copy; 2022 LUX BAGS STORE</p>
+          <p className='text-sm text-gray-500'>Copyright &copy; {today.getFullYear()} 2022 LUX BAGS STORE</p>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };
 
-export default Footer;
+export default FooterNew;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Create = () => {
@@ -7,16 +8,16 @@ const Create = () => {
   const [image, setImage] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
-  const [featured, setFeatured] = useState('');
+  const [featured, setFeatured] = useState(false);
   const [qty, setQty] = useState('');
   const [productInStock, setProductInStock] = useState('');
 
   const onSubmit = (e) => {
     e.preventDefault();
-  }
+  };
 
-  const addProduct = () => {
-    axios.post('http://localhost:5005/api/products', {
+  const addProduct = async () => {
+    const product = {
       urlName: urlName,
       item: item,
       image: image,
@@ -25,7 +26,9 @@ const Create = () => {
       featured: featured,
       qty: qty,
       productInStock: productInStock,
-    });
+    };
+
+    await axios.post('http://localhost:5005/api/products', product);
   };
 
   return (
@@ -37,24 +40,23 @@ const Create = () => {
             UrlName
           </label>
           <input
-          autoComplete="off"
-            type='text'
-             value={urlName}
+            autoFocus
             id='urlName'
-            className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
+            type='text'
+            value={urlName}
             placeholder='UrlName'
+            required
+            className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
             name='urlName'
-           
             onChange={(e) => {
-              setUrlName(e.target.value)
+              setUrlName(e.target.value);
             }}
           />
-          <p>{urlName}</p>
         </div>
 
         <div className='relative border border-gray-300 rounded-md rounded-t-none px-3 py-2 focus-within:z-10 focus-within:ring-1 focus-within:ring-indigo-600 focus-within:border-indigo-600'>
           <label htmlFor='item' className='block text-xs font-medium text-gray-900'>
-            Item{' '}
+            Item
           </label>
           <input
             className='block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm'
@@ -170,9 +172,11 @@ const Create = () => {
             }}
           />
         </div>
-        <button type='submit' onClick={addProduct}>
-          Add Product
-        </button>
+        <Link to='/all'>
+          <button type='submit' onClick={addProduct}>
+            Add Product
+          </button>
+        </Link>
         {/* <button onClick={postData} type='submit'>
           Add Product
         </button> */}
