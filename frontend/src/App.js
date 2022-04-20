@@ -1,9 +1,12 @@
 import React from 'react';
+// import { LicenseInfo } from '@mui/x-license-pro';
 
 // import {Outlet} from 'react-router'
 import { Routes, Route /*Navigate*/ } from 'react-router-dom';
 
 import { DataContextProvider } from './contexts/DataContext';
+
+// import Header from './components/layouts/Header';
 
 import Navbar from './components/layouts/Navbar';
 import Home from './components/Home/Home';
@@ -22,35 +25,44 @@ import DeleteProduct from './components/Admin/DeleteProduct';
 // Auth Imports
 // import Login from './components/Auth/Login';
 
-// import Header from './components/layouts/Header';
-// import Content from './components/layouts/Content';
+
+
 import FooterNew from './components/layouts/FooterNew'
+
+// LicenseInfo.setLicenseKey(
+//   '7cf3d3a2872dff3853b98cba8888a691T1JERVI6NDIwMzQsRVhQSVJZPTE2ODE4NjQ5NzIwMDAsS0VZVkVSU0lPTj0x',
+// );
+
+
+
+
 
 const App = () => {
   return (
     <div className='App'>
       <DataContextProvider>
+      {/* <Header/> */}
           <Navbar />
-        {/* <Header />
-        <Content /> */}
+ 
+      
         <FooterNew/>
     
         {/* <Login/> */}
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Products />} />
+        <Route path='/products' element={<Products />} />
           <Route path='/products/:productId' element={<ProductDetails />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<Cart />} /> 
 
-          <Route path='*' element={<NoMatch />} />
+          <Route path='*' element={<NoMatch />} /> 
 
           {/* Admin Routes */}
           {/* <Route path='/admin' element={<Update />} /> */}
           <Route path='/create' element={<Create />} />
           <Route path='/all'   element={<AllProducts />} />
           <Route path='/edit/:id' element={<EditProduct />} />
-          <Route path='/products/delete/:id' element={<DeleteProduct />} />
+          <Route path='/products/delete/:id' element={<DeleteProduct />} /> 
 
           {/* Auth Routes */}
 
