@@ -10,6 +10,8 @@ import { DataContextProvider } from './contexts/DataContext';
 
 import Navbar from './components/layouts/Navbar';
 import Home from './components/Home/Home';
+import SignUp from './components/Auth/SignUp';
+import SignIn from './components/Auth/SignIn';
 import Products from './components/Products/Products';
 import ProductDetails from './components/Products/ProductDetails';
 import Cart from './components/Cart/Cart';
@@ -27,7 +29,8 @@ import DeleteProduct from './components/Admin/DeleteProduct';
 
 
 
-import FooterNew from './components/layouts/FooterNew'
+// import FooterNew from './components/layouts/FooterNew'
+// import TestGrounds from './TestGrounds';
 
 // LicenseInfo.setLicenseKey(
 //   '7cf3d3a2872dff3853b98cba8888a691T1JERVI6NDIwMzQsRVhQSVJZPTE2ODE4NjQ5NzIwMDAsS0VZVkVSU0lPTj0x',
@@ -43,9 +46,12 @@ const App = () => {
       <DataContextProvider>
       {/* <Header/> */}
           <Navbar />
+          {/* <SignUp/> */}
+          {/* <Home/> */}
+          {/* <TestGrounds/> */}
  
       
-        <FooterNew/>
+        {/* <FooterNew/> */}
     
         {/* <Login/> */}
 
@@ -53,6 +59,8 @@ const App = () => {
           <Route path='/' element={<Home />} />
         <Route path='/products' element={<Products />} />
           <Route path='/products/:productId' element={<ProductDetails />} />
+        <Route path='/sign-up' element={<SignUp />} /> 
+        <Route path='/sign-in' element={<SignIn />} /> 
           <Route path='/cart' element={<Cart />} /> 
 
           <Route path='*' element={<NoMatch />} /> 

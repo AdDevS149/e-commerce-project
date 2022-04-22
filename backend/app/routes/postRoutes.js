@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { publicPosts, privatePosts } = require('../dbase');
+// const { publicPosts, privatePosts } = require('../dbase');
 const checkAuthMiddleware = require("../middleware/checkAuthMiddleware")
 
 
